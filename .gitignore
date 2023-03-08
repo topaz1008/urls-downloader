@@ -1,0 +1,7 @@
+/.idea
+/node_modules
+
+/downloads/*
+!/downloads/.gitkeep
+
+options.json5

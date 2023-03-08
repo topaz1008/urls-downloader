@@ -1,0 +1,4 @@
+// A comment
+Any line that doesn't start with https is ignored
+Each line can contain this pattern url_to_download|filename_to_save_as
+If no filename is specified, then the filename is taken from the url

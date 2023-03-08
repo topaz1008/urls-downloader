@@ -1,0 +1,23 @@
+{
+    "name": "@topaz1008/urls-downloader",
+    "description": "A simple generic URL(s) downloader script using streams.",
+    "version": "1.0.0",
+    "author": {
+        "name": "Topaz Bar",
+        "email": "topaz1008@gmail.com"
+    },
+    "type": "module",
+    "main": "main.js",
+    "keywords": [
+        "download",
+        "got",
+        "streams",
+        "urls",
+        "download-urls",
+        "urls-downloader"
+    ],
+    "dependencies": {
+        "got": "^12.6.0",
+        "json5": "^2.2.3"
+    }
+}
