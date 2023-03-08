@@ -9,7 +9,7 @@ npm install
 ```
 
 ## Usage
-Edit the `urls.txt` file and add the URLs you want to download and then run `main.js` with node. (i.e. `node main.js`
+Edit the `urls.txt` file and add the URLs you want to download and then run `main.js` with node. (i.e. `node main.js`)
 
 The format for `urls.txt` is in the pattern of one URL per line, optionally the url can be followed a pipe `|` and the filename you want to save the file as.
 
