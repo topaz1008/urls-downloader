@@ -3,7 +3,7 @@
 A simple generic URL(s) downloader script using streams. Using [got](https://github.com/sindresorhus/got) under the hood.
 
 ## Installation
-Download or clone this repository, then run the following command in the root directory where you extracted or clones this repository
+Download or clone this repository, then run the following command in the directory where you extracted or cloned this repository
 ```
 npm install
 ```
