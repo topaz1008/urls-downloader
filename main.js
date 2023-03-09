@@ -14,10 +14,11 @@ const DESTINATION_FOLDER = './downloads',
 
 const urls = await fss.readFile(URLS_FILE, 'utf8');
 const files = urls.toString()
-    .split(EOL)
-    .map(line => line.trim())
-    .filter(line => /^https/.test(line))
+    .split(EOL)// Split the file into lines
+    .map(line => line.trim())// Trim leading/trailing whitespace
+    .filter(line => /^https/.test(line)) // Only keep lines that start with "https"
     .map(line => {
+        // Split the line into parts and trim
         const parts = line.split('|').map(part => part.trim());
 
         let url, name;
@@ -41,11 +42,13 @@ const files = urls.toString()
         return { url, name };
     });
 
-// Load the options.json5 file if exists
-const options = await loadOptionsJson();
+// Create the destination folder if it doesn't exist
 if (!await exists(DESTINATION_FOLDER)) {
     await fss.mkdir(DESTINATION_FOLDER, { recursive: true });
 }
+
+// Load the optional options.json5 file if exists
+const options = await loadOptionsJsonIfExists();
 
 // If any files/url(s) were parsed then process them
 if (files.length > 0) {
@@ -94,7 +97,7 @@ async function exists(filepath) {
  *
  * @returns {Promise<{}>}
  */
-async function loadOptionsJson() {
+async function loadOptionsJsonIfExists() {
     if (!await exists(OPTIONS_FILE)) return {};
 
     const file = await fss.readFile(OPTIONS_FILE, 'utf8');
