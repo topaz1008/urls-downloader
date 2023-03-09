@@ -22,7 +22,7 @@ while `https://www.domain.com/path/to/filename.txt|foo.txt` will be saved as `fo
 
 This script is using [got](https://github.com/sindresorhus/got) for downloading the files, so you can use any of the options that are supported by got.
 
-Create an `options.json5` file in the root directory of this repository and add the options you want to use.
+Copy `options.template.json5` to `options.json5` and set/add the options you want to use with got.
 
 Since json5 is used, you can add comments to the file and conform to any valid JSON5 rules.
 
