@@ -41,11 +41,13 @@ const files = urls.toString()
         return { url, name };
     });
 
+// Load the options.json5 file if exists
 const options = await loadOptionsJson();
 if (!await exists(DESTINATION_FOLDER)) {
     await fss.mkdir(DESTINATION_FOLDER, { recursive: true });
 }
 
+// If any files/url(s) were parsed then process them
 if (files.length > 0) {
     log(`Downloading "${files.length}" urls...`);
     for (let i = 0; i < files.length; i++) {
@@ -59,6 +61,7 @@ if (files.length > 0) {
 
         log(`Downloading "${url}" to "${filename}"...`);
 
+        // Download the file and save it to disk
         const dest = fs.createWriteStream(filepath);
         await pipeline(got.stream(url, options), dest);
     }
@@ -69,6 +72,12 @@ if (files.length > 0) {
     log('Nothing to download, exiting...');
 }
 
+/**
+ * Check if a file or directory exists.
+ *
+ * @param filepath {string}
+ * @returns {Promise<boolean>}
+ */
 async function exists(filepath) {
     try {
         const stats = await fss.stat(filepath);
@@ -80,6 +89,11 @@ async function exists(filepath) {
     }
 }
 
+/**
+ * Load the options.json5 file.
+ *
+ * @returns {Promise<{}>}
+ */
 async function loadOptionsJson() {
     if (!await exists(OPTIONS_FILE)) return {};
 
@@ -88,6 +102,11 @@ async function loadOptionsJson() {
     return JSON5.parse(file.toString());
 }
 
+/**
+ * Log a message to the console.
+ *
+ * @param msg {string}
+ */
 function log(msg) {
     console.log(msg);
 }
