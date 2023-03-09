@@ -22,16 +22,19 @@ const files = urls.toString()
 
         let url, name;
         if (parts.length === 1) {
+            // Only an url was provided, use the last part of the url as the filename
             url = parts[0];
 
             const urlParts = url.split('/');
             name = urlParts[urlParts.length - 1];
 
         } else if (parts.length === 2) {
+            // Both url and filename were provided
             url = parts[0];
             name = parts[1];
 
         } else {
+            // Invalid line so throw an error
             throw new Error(`Invalid line: ${line}`);
         }
 
