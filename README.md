@@ -3,7 +3,7 @@
 A simple generic URL(s) downloader script using streams. Using [got](https://github.com/sindresorhus/got) under the hood.
 
 ## Installation
-Download or clone this repository, then run the following command in the directory where you extracted or cloned this repository
+Download or clone this repository, then run the following command in the directory where you extracted or cloned the repository.
 ```
 npm install
 ```
@@ -24,7 +24,7 @@ This script is using [got](https://github.com/sindresorhus/got) for downloading 
 
 Copy `options.template.json5` to `options.json5` and set/add the options you want to use with got.
 
-Since json5 is used, you can add comments to the file and conform to any valid JSON5 rules.
+Since JSON5 is used, you can add comments to the file and conform to any valid JSON5 rules.
 
 # The `urls.txt` file
 
