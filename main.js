@@ -12,10 +12,10 @@ const DESTINATION_FOLDER = './downloads',
     OPTIONS_FILE = './options.json5',
     URLS_FILE = './urls.txt';
 
-const urls = await fss.readFile(URLS_FILE, 'utf8');
-const files = urls.toString()
-    .split(EOL)// Split the file into lines
-    .map(line => line.trim())// Trim leading/trailing whitespace
+const urlsFile = await fss.readFile(URLS_FILE, 'utf8');
+const files = urlsFile.toString()
+    .split(EOL) // Split the file into lines
+    .map(line => line.trim()) // Trim leading/trailing whitespace
     .filter(line => /^https/.test(line)) // Only keep lines that start with "https"
     .map(line => {
         // Split the line into parts and trim
@@ -94,6 +94,7 @@ async function exists(filepath) {
 
 /**
  * Load the options.json5 file.
+ * The file is optional, so it's not an error if it doesn't exist.
  *
  * @returns {Promise<{}>}
  */
@@ -107,6 +108,7 @@ async function loadOptionsJsonIfExists() {
 
 /**
  * Log a message to the console.
+ * This is just a wrapper around console.log() to make it easier to change the logging in the future.
  *
  * @param msg {string}
  */
